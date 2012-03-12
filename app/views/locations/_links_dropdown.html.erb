@@ -1,0 +1,8 @@
+<% unless links.empty? %>
+<%  form_tag "/locations/add_links/#{id}" do -%>
+  <%= select_tag "links_id[]",
+                 options_from_collection_for_select(links, "id", "name"),
+                 :multiple => 'true' %>
+  <%= submit_tag 'add' %>
+<% end -%>
+<% end %>

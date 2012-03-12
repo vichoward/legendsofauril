@@ -1,0 +1,31 @@
+<h2>Character Screen</h2>
+
+Name: <%= @character.name %> <%= @character.name_exp %>
+Strength: <%= @character.strength %> 
+Agility: <%= @character.agility %>
+Health: <%= @character.health %>
+Grit: <%= @character.const %>
+Intelligence: <%= @character.intelligence %>
+Intuition: <%= @character.intuition %>
+Charisma: <%= @character.charisma %>
+Perception: <%= @character.perception %>
+Attack: <%= @character.attack %>
+Defense: <%= @character.defense %>
+Speed: <%= @character.speed %>
+Crit Chance: <%= @character.crit_chance %>
+Crit Multiplier(Yeah baby): <%= @character.crit_multiplier %>
+Magic Power: <%= @character.magic_power %>
+Potency: <%= @character.potency %>
+Magic Defense: <%= @character.magic_defense %>
+Regen Rate: <%= @character.regen_rate %>
+Damage Reduction: <%= @character.damage_reduction %>
+Lore: <%= @character.lore %>
+<br/>
+Remaining Exp: <%= @character.strength %>
+Platinum: <%= @character.platinum %>
+Gold: <%= @character.gold %>
+Silver: <%= @character.silver %>
+Copper: <%= @character.copper %>
+
+<%= link_to 'Edit', edit_character_path(@character) %> |
+<%= link_to 'Back', characters_path %>

@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Legends of Auril: <%= @page_title %></title>
+<link rel="stylesheet" type="text/css" href="/stylesheets/scaffold.css" />
+
+<%= javascript_include_tag :defaults %>
+
+</head>
+
+<body>
+	<% if @motd %>
+	<div id="motd" class="container">
+		<%= @motd %>
+	</div>
+	<% end %>
+
+	<% error_hide = true; error_hide = false if (@error or flash[:error]) %>
+	<div id="error" class="container" <%= error_hide ? hidden : '' %>>
+		<strong>Error</strong>: <%= @error or flash[:error] %>
+	</div>
+	<!-- <div id="headerbg">&nbsp;</div> -->
+	<div id="head-background">
+	<div id="head-container" class="container">
+		<div id="header">
+		<h2>Comcast I&O Forms Portal</h2>
+		</div>
+		<div id="topmenu">
+			<li><span><span><%= link_to 'Main', {:controller => 'trd', :action => 'list' } %>
+			</span></span></li>
+			<li><span><span><%= link_to 'Makes', {:controller => :ref_makes, :action => :index } %></span></span></li>
+			<li><span><span><%= link_to 'Models', {:controller => :ref_models, :action => :index } %></span></span></li>
+			<li><span><span><%= link_to 'Specs', {:controller => :ref_specs, :action => :index } %></span></span></li>
+			<li><span><span><%= link_to 'OS', {:controller => :ref_os, :action => :index } %></span></span></li>
+			<li><span><span><%= link_to 'Data Centers', {:controller => :ref_datacenters, :action => :index } %></span></span></li>
+			<li><span><span><%= link_to 'Networks', {:controller => :ref_networks, :action => :index } %></span></span></li>
+			<li><span><span><%= link_to 'Ports', {:controller => :ref_ports, :action => :index } %></span></span></li>
+			<li><span><span><%= link_to 'San Ports', {:controller => :ref_san_ports, :action => :index } %></span></span></li>
+			<li><span><span><%= link_to 'Port Speeds', {:controller => :ref_port_speeds, :action => :index } %></span></span></li>
+			<li><span><span><%= link_to 'Port Networks', {:controller => :ref_port_networks, :action => :index } %></span></span></li>
+			<li><span><span><%= link_to 'Tooltips', {:controller => :tooltips, :action => :index } %></span></span></li>
+			<li><span><span><%= link_to 'DBs', {:controller => :ref_database_types, :action => :index } %></span></span></li>
+
+</div>
+		<div id="topmenu">
+			<li><span><span><%= link_to 'Divs', {:controller => :ref_divisions, :action => :index } %></span></span></li>
+			<li><span><span><%= link_to 'Users', {:controller => :users, :action => :index } %></span></span></li>
+			
+			<li><span><span><%= link_to 'RUs', {:controller => :ref_rus, :action => :index } %></span></span></li>
+			<li><span><span><%= link_to 'Power Cables', {:controller => :ref_power_cables, :action => :index } %></span></span></li>
+			<li><span><span><%= link_to 'Pow Aut Sensing', {:controller => :ref_power_auto_sensings, :action => :index } %></span></span></li>
+			<li><span><span><%= link_to 'Plug Types', {:controller => :ref_plug_types, :action => :index } %></span></span></li>
+			<li><span><span><%= link_to 'Net Types', {:controller => :ref_network_types, :action => :index } %></span></span></li>
+			<li><span><span><%= link_to 'Virt OS Comps', {:controller => :ref_virtual_os_components, :action => :index } %></span></span></li>
+			<li><span><span><%= link_to 'Opsware', {:controller => :ref_opsware_builds, :action => :index } %></span></span></li>
+			<li><span><span><%= link_to 'Env', {:controller => :ref_environments, :action => :index } %></span></span></li>
+			<li><span><span><%= link_to 'Slots', {:controller => :ref_slots, :action => :index } %></span></span></li>
+		<% if false %>
+		<ul id="top-navigation">
+			<li <%= 'class="current"' if controller.controller_path == 'sudo_template' %>><span><span><%= link_to 'Sudo Class', {:controller => 'sudo_template', :action => 'index'} %></span></span></li>
+			<% if admin? and false %>
+			<li <%= 'class="current"' if controller.controller_path == 'reports' %>><span><span><%= link_to 'Reports', {:controller => 'sudo_template', :action => 'index'} %></span></span></li>
+			<% end %>			
+		</ul>
+	<% end %>
+		</div>
+	</div>
+	</div>
+	<div id="top-panel-bg">
+	<div id="top-panel" class="container">
+		<span id="title"><%= yield :title %></span>
+				<div id="top-authinfo" style="float:right;">
+					<%= authenticated? ? current_user : link_to('Login') %>
+				</div>
+	</div>
+	</div>
+	<div id="container" class="container">
+	<div id="wrapper">
+	    <div id="content">
+<%= yield -%>
+	    </div>
+	    <div id="sidebar">
+		<%= flash[:notice] %>
+		<h4>More Admin Controls:<h4>
+		<li><span><span><%= link_to 'Storage Purpose', {:controller => :ref_purposes, :action => :index } %></span></span></li>
+		<li><span><span><%= link_to 'Port Purpose', {:controller => :ref_port_purposes, :action => :index } %></span></span></li>
+		<li><span><span><%= link_to 'Disk Type', {:controller => :ref_disk_types, :action => :index } %></span></span></li>
+		<li><span><span><%= link_to 'Storage Tiers', {:controller => :ref_tiers, :action => :index } %></span></span></li>
+		<li><span><span><%= link_to 'System Types', {:controller => :ref_system_types, :action => :index } %></span></span></li>
+		
+		
+			<%#= render :partial => "/shared/sidebar/#{controller.controller_path}"	%>
+		</div>
+      </div>
+	<div id="footer">
+		<pre><%= @random %></pre>
+	</div>
+</div>
+</body>
+</html>

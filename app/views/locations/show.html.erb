@@ -1,0 +1,29 @@
+<a href="#"><%= image_tag "#{@location.name}", :ismap => true, :width => "960px", :height => "960px" -%></a>
+
+
+<h3>Links:<%= link_to_remote "New", :update => "links_controls",
+  :url => { :action => "links_form", :id => @location } -%>
+ <span id="links_controls" class="controls">
+    
+  </span>
+  
+</h3>
+<% unless @links.empty? %>
+<div id="links">
+<table border=1><tr><th>Name</th><th>Link Map</th><th>Controls</th></tr>
+  <% @links.each do |link| %>
+  <% div_for link do %>
+    <tr>
+	  <td><%= link_to(h(link.name), link) %></td>
+	  <td>
+	  <%= link.location.name if link.location %>
+	  </td>
+      <td><%= link_to("Remove", :controller => "locations", :action => "remove_link", :id => @location, :link_id => link) %>&nbsp&nbsp
+    </tr>
+  <% end %> 
+<% end %>
+  </table>
+</div>
+<% end %>
+<%= link_to 'Edit', edit_location_path(@location) %> |
+<%= link_to 'Back', locations_path %>

@@ -1,0 +1,12 @@
+<h1>Editing enemy</h1>
+
+<% form_for(@enemy) do |f| %>
+  <%= f.error_messages %>
+<%= render :partial => "form", :locals => {:f => f} %>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @enemy %> |
+<%= link_to 'Back', enemies_path %>

@@ -1,0 +1,8 @@
+<%  form_tag "/locations/new_link/#{id}" do -%>
+  Name: <%= text_field_tag "name" %>
+  Latitude:<%= text_field_tag "lat" %>
+  Longitude:<%= text_field_tag "long" %><br/>
+  Radius:<%= text_field_tag "radius" %>
+  
+  <%= submit_tag 'add' %>
+<% end -%>

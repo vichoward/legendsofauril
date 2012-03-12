@@ -1,0 +1,12 @@
+<h1>Editing skill</h1>
+
+<% form_for(@skill) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @skill %> |
+<%= link_to 'Back', skills_path %>

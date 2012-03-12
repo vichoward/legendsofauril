@@ -1,0 +1,76 @@
+<% content_for :main do %>
+<%= image_tag "#{@location.name}", :usemap => "#map1", :id => 'transparent', :width => "960px", :height => "960px" -%>
+<script>
+/*var transparent = new Ext.Resizable('transparent', {
+    wrap:true,
+    minWidth:50,
+    minHeight: 50,
+    preserveRatio: true,
+    transparent:true
+});*/
+</script>
+<% unless @links.empty? %>
+<map id= "map1" name="map1">
+<% @links.each do | link | %>
+<area shape="circle" coords="<%=link.lat%>,<%=link.long%>,<%=link.radius%>" href="/travels/show/<%= link.location.id if link.location%>" title="<%= link.name %>"></area>
+<% end %>
+</map>
+<% end %>
+
+<% end %>
+
+<% content_for :header do %>
+<h1><a href="#">Exploration</a></h1>
+<ul>
+	<li><a href="/landing">Home</a></li>
+	<li><a href="/travels">Play!</a></li>
+	<li><a href="#">About</a></li>
+	<li><a href="#">Contact</a></li>
+</ul>
+
+<hr>
+<ul>
+	<li><a href="#">Character Screen</a></li>
+	<li><a href="#">Back to Last Map</a></li>
+</ul>
+<% end %>
+
+<% content_for :head do %>
+	<script type="text/javascript" src="/javascripts/examples.js"></script><!-- EXAMPLES -->
+
+<style type="text/css">
+#basic, #animated {
+    border:1px solid #c3daf9;
+    color:#1e4e8f;
+    font:bold 14px tahoma,verdana,helvetica;
+    text-align:center;
+    padding-top:20px;
+}
+#snap {
+    border:1px solid #c3daf9;
+    overflow:hidden;
+}
+#custom {
+    cursor:move;
+}
+#custom-rzwrap{
+    z-index: 100;
+}
+#custom-rzwrap .x-resizable-handle{
+    width:11px;
+    height:11px;
+    background:transparent url(/images/square.gif) no-repeat;
+    margin:0px;
+}
+#custom-rzwrap .x-resizable-handle-east, #custom-rzwrap .x-resizable-handle-west{
+    top:45%;
+}
+#custom-rzwrap .x-resizable-handle-north, #custom-rzwrap .x-resizable-handle-south{
+    left:45%;
+}
+</style>
+<% end %>
+
+
+
+

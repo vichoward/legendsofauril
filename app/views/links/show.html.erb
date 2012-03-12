@@ -1,0 +1,14 @@
+Name:<%= @link.name %> <br/> 
+Current Assigned Location:<%= @link.location.name if @link.location %><br/>
+<% unless @locations.empty? %>
+<%  form_tag "/links/assign_location/#{@link.id}" do -%>
+  <%= select_tag "location_id",
+                 options_from_collection_for_select(@locations, "id", "name")%>
+  <%= submit_tag 'add' %>
+<% end -%>
+<% end %>
+
+
+<%= link_to 'Edit', edit_link_path(@link) %> |
+<%= link_to 'Back', links_path %>
+<%= link_to 'Locations', locations_path %>

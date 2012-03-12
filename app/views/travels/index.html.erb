@@ -1,0 +1,42 @@
+
+<% content_for :main do %>
+<%= image_tag "#{@location.name}", :usemap => "#map1", :width => "960px", :height => "960px" -%>
+
+<% unless @links.empty? %>
+<map id= "map1" name="map1">
+<% @links.each do | link | %>
+<area shape="circle" coords="<%=link.lat%>,<%=link.long%>,<%=link.radius%>" href="/travels/show/<%= link.location.id if link.location%>" title="<%= link.name %>"></area>
+<% end %>
+</map>
+<% end %>
+<% end %>
+
+<% content_for :header do %>
+<ul>
+	<li><a href="/landing">Home</a></li>
+	<li><a href="/travels">Play!</a></li>
+	<li><a href="#">About</a></li>
+	<li><a href="#">Contact</a></li>
+</ul>
+<hr>
+<ul>
+	<li><a href="/travels">Map</a></li>
+	<li><a href="/characters">Profile</a></li>
+	<li><a href="/items">Items</a></li>
+	<li><a href="/items">Skills</a></li>
+	
+</ul>
+<br/>
+<% end %>
+<script>
+var transparent = new Ext.Resizable('transparent', {
+    wrap:true,
+    minWidth:50,
+    minHeight: 50,
+    preserveRatio: true,
+    transparent:true
+});
+</script>
+
+
+

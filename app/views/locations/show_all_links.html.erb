@@ -1,0 +1,9 @@
+<% @locations.each do | loc | %>
+<%= loc.name %><br/>
+<% loc.links.each do | link | %>
+--<%= link.name %><br/>
+<% if link.location %>
+----<%= link.location.name %><br/>
+<% end %>
+<% end %>
+<% end %> 

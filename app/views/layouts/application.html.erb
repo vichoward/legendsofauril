@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Legends of Auril</title>
+<meta name="keywords" content="legendofauril, role playing game" />
+<meta name="description" content="A role playing game with a vast land to explore" />
+<meta name="robots" content="all" />
+<link rel="stylesheet" type="text/css" href="/stylesheets/game.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="/stylesheets/ext-all.css" />
+<script src="/javascripts/ext-base.js" type="text/javascript" charset="utf-8"></script>
+<script src="/javascripts/ext-all.js" type="text/javascript" charset="utf-8"></script>
+<script src="/javascripts/dynamic_images.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<!-- begin wrap -->
+<div id="wrap">
+	<!-- begin header -->
+	<div id="header">
+		<%= yield :header %>
+	</div>
+	<!-- end header -->
+	<!-- begin page -->
+	<div id="page">
+		
+		<!-- begin content -->
+		<div id="content">
+		   <%= yield :main %>
+		</div>
+		<!-- end content -->
+		<!-- begin sidebar -->
+		<div id="sidebar">
+			<%= yield :sidebar %>
+		</div>
+		<!-- end sidebar -->
+	</div>
+	<!-- end page -->
+	<!-- begin footer -->
+	<div id="footer">
+		<!-- All we ask of you is to keep this credits intact. We hope you don't mind :) -->
+		<!--<p class="legal"><a href="http://www.thewebhub.com/2008/11/lightspeed/">LightSpeed Free CSS Template</a> by <a href="http://thewebhub.com/">TheWebHub.com</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/ph/">Creative Commons Attribution-Share Alike 3.0 Philippines License</a>.<br />
+			<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/ph/"></p>
+	</div>-->
+	<!-- end footer -->
+</div>
+<!-- end wrap -->
+</body>
+</html>
